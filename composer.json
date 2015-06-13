@@ -1,0 +1,31 @@
+{
+    "name": "yadakhov/tor",
+    "type": "library",
+    "description": "A simple wrapper class for Tor service in a Linux environment with init.d.",
+    "keywords": [
+        "tor",
+        "api",
+        "sraper"
+    ],
+    "homepage": "https://github.com/yadakhov/tor",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yada Khov",
+            "email": "yada.khov@gmail.com",
+            "homepage": "http://yadakhov.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.2.0",
+        "mikehaertl/php-shellcommand": "1.0.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yadakhov\\": "src/"
+        }
+    }
+}
