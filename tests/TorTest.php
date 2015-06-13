@@ -17,35 +17,35 @@ class TorTest extends \PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function test_constructor()
+    public function testConstructor()
     {
         $this->assertTrue($this->tor instanceof Tor);
     }
 
-    public function test_command_invalid_argument()
+    public function testCommandInvalidArgument()
     {
         $this->setExpectedException('InvalidArgumentException');
         $this->tor->command('everything');
     }
 
-    public function test_command_status()
+    public function testCommandStatus()
     {
         $command = $this->tor->command('status');
 
         $this->assertEquals(0, $command->getExitCode());
     }
 
-    public function test_isRunning()
+    public function testIsRunning()
     {
         $this->tor->isRunning();
     }
 
-    public function test_curl_exists()
+    public function testCurlExists()
     {
         $this->assertTrue(function_exists('curl_version'));
     }
 
-    public function test_start()
+    public function testStart()
     {
         $this->tor->stop();
         $command = $this->tor->start();
@@ -53,7 +53,7 @@ class TorTest extends \PHPUnit_Framework_TestCase
         $this->assertStringStartsWith('* Starting tor daemon', $command->getOutput());
     }
 
-    public function test_stop()
+    public function testStop()
     {
         $command = $this->tor->stop();
 
@@ -61,32 +61,32 @@ class TorTest extends \PHPUnit_Framework_TestCase
         $this->tor->start();
     }
 
-    public function test_reload()
+    public function testReload()
     {
         $command = $this->tor->reload();
 
         $this->assertStringEndsWith('done.', $command->getOutput());
     }
 
-    public function test_force_reload()
+    public function testForceReload()
     {
         $command = $this->tor->forceReload();
         $this->assertStringEndsWith('done.', $command->getOutput());
     }
 
-    public function test_status()
+    public function testStatus()
     {
         $command = $this->tor->status();
 
         $this->assertEquals('* tor is running', $command->getOutput());
     }
 
-    public function test_newIp()
+    public function testNewIp()
     {
         $this->tor->newIp();
     }
 
-    public function test_getRandomHeader()
+    public function testGetRandomHeader()
     {
         $header = $this->tor->getRandomHeader();
         $this->assertTrue(is_array($header));

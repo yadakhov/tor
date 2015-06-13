@@ -15,7 +15,6 @@ class Tor
         if (!$this->isRunning()) {
             $this->command('start');
         }
-        $this->newIp();
     }
 
     /**
@@ -150,9 +149,9 @@ class Tor
             return false;
         } else {
             fwrite($fp, "AUTHENTICATE \"".$auth."\"\n");
-            $received = fread($fp, 512);
+            fread($fp, 512);
             fwrite($fp, $command."\n");
-            $received = fread($fp, 512);
+            fread($fp, 512);
         }
 
         fclose($fp);

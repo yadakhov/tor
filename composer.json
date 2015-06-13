@@ -4,7 +4,6 @@
     "description": "A simple wrapper class for Tor service in a Linux environment with init.d.",
     "keywords": [
         "tor",
-        "api",
         "sraper"
     ],
     "homepage": "https://github.com/yadakhov/tor",
@@ -17,7 +16,6 @@
         }
     ],
     "require": {
-        "php": ">=5.2.0",
         "mikehaertl/php-shellcommand": "1.0.*"
     },
     "require-dev": {
